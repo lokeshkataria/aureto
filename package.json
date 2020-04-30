@@ -1,7 +1,7 @@
 {
-  "name": "universal-react",
+  "name": "aureto",
   "version": "0.1.0",
-  "description": "Universal React application development boilerplate/ecosystem with next.js",
+  "description": "Audit Review Tool based on Universal React Reference Architecture",
   "main": "server/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --config ./config/jest.config.js --json --outputFile=.jest-test-results.json",
