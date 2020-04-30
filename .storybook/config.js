@@ -31,7 +31,7 @@ addParameters({
 });
 
 addDecorator(withKnobs);
-addDecorator(withSmartKnobs);
+addDecorator(withSmartKnobs());
 addDecorator(withA11y);
 addDecorator(withDesign);
 addDecorator(

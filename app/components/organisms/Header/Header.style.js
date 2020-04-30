@@ -1,16 +1,9 @@
 import { css } from 'styled-components';
 
-import { DESKTOP, MOBILE } from '../../../constants';
-
-const commonStyles = css`
+export default css`
   opacity: 1;
-`;
 
-export default {
-  [DESKTOP]: css`
-    ${commonStyles};
-  `,
-  [MOBILE]: css`
-    ${commonStyles};
-  `,
-};
+  &__heading {
+    flex-grow: 1;
+  }
+`;

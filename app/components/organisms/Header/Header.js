@@ -4,23 +4,29 @@
  */
 import React from 'react';
 import type { Node } from 'react';
-import Link from 'next/link';
+import NextLink from 'next/link';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import type { Props } from './types';
-import NavBar from '../../molecules/NavBar';
+import styles from './Header.style';
+import withStyles from '../../../lib/withStyles';
 
-const Header = ({ nav, className }: Props): Node => (
-  <div className={className}>
-    <header id="header">
-      <Link href="/">
-        <a href="/" className="logo">
-          Sample Logo for site
-        </a>
-      </Link>
-      {nav && <NavBar items={nav} />}
-    </header>
-  </div>
+const Header = ({ className }: Props): Node => (
+  <AppBar position="static" className={className}>
+    <Toolbar>
+      <Typography variant="h6" className={`${className}__heading`}>
+        Aureto
+      </Typography>
+      <NextLink href="/">
+        <Button component="a" href="/" color="inherit">
+          <AddIcon />
+          New Project
+        </Button>
+      </NextLink>
+    </Toolbar>
+  </AppBar>
 );
 
 Header.defaultProps = {};
-
-export default Header;
+export default withStyles(Header, styles);
+export { Header };

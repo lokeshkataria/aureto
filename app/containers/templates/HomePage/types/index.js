@@ -5,6 +5,7 @@ import {
   LOAD_HOME_SEO_SUCCESS,
   LOAD_HOME_EDITORIAL_DATA,
   LOAD_HOME_EDITORIAL_DATA_SUCCESS,
+  SAVE_NEW_PROJECT_DETAILS_SUCCESS,
 } from '../HomePage.constants';
 
 export type LoadHomeFailureAction = {
@@ -29,6 +30,11 @@ export type LoadHomeEditorialDataSuccessAction = {
   data: any,
 };
 
+export type SaveNewProjectDetailsSuccessAction = {
+  type: typeof SAVE_NEW_PROJECT_DETAILS_SUCCESS,
+  data: any,
+};
+
 export type Props = {
   seoData: Object,
   editorialData: Object,
@@ -43,4 +49,5 @@ export type HomePageActions =
   | LoadSeoDataAction
   | LoadSeoDataSuccessAction
   | LoadHomeEditorialDataAction
-  | LoadHomeEditorialDataSuccessAction;
+  | LoadHomeEditorialDataSuccessAction
+  | SaveNewProjectDetailsSuccessAction;

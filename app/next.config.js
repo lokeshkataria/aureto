@@ -47,7 +47,6 @@ module.exports = withPlugins([withBundleAnalyzer, withOffline], {
         files: [
           'node_modules/normalize.css/normalize.css',
           'node_modules/flexboxgrid/css/flexboxgrid.css',
-          'app/static/styles/icons/icomoon.css',
         ],
         fileName: 'foundation',
       };

@@ -5,6 +5,7 @@ import {
   LOAD_HOME_SEO_SUCCESS,
   LOAD_HOME_EDITORIAL_DATA,
   LOAD_HOME_EDITORIAL_DATA_SUCCESS,
+  SAVE_NEW_PROJECT_DETAILS_SUCCESS,
 } from './HomePage.constants';
 import type {
   LoadHomeFailureAction,
@@ -12,6 +13,7 @@ import type {
   LoadSeoDataSuccessAction,
   LoadHomeEditorialDataAction,
   LoadHomeEditorialDataSuccessAction,
+  SaveNewProjectDetailsSuccessAction,
 } from './types';
 
 export const loadHomeFailure = (error: any): LoadHomeFailureAction => ({
@@ -33,6 +35,11 @@ export const loadHomePageEditorial = (): LoadHomeEditorialDataAction => ({
 
 export const loadHomePageEditorialSuccess = (data: Object): LoadHomeEditorialDataSuccessAction => ({
   type: LOAD_HOME_EDITORIAL_DATA_SUCCESS,
+  data,
+});
+
+export const saveNewProjectDetailsSuccess = (data: Object): SaveNewProjectDetailsSuccessAction => ({
+  type: SAVE_NEW_PROJECT_DETAILS_SUCCESS,
   data,
 });
 

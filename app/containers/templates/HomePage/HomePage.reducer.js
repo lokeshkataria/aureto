@@ -13,6 +13,7 @@ import {
   LOAD_HOME_FAILURE,
   LOAD_HOME_SEO_SUCCESS,
   LOAD_HOME_EDITORIAL_DATA_SUCCESS,
+  SAVE_NEW_PROJECT_DETAILS_SUCCESS,
 } from './HomePage.constants';
 
 export const getFailure = (state: Object, error: LoadHomeFailureAction): Object =>
@@ -26,6 +27,11 @@ export const addHomeEditorialData = (
   data: LoadHomeEditorialDataSuccessAction
 ): Object => set(state, 'editorialData', data);
 
+export const addProjectDetails = (
+  state: Object,
+  data: SaveNewProjectDetailsSuccessAction
+): Object => set(state, 'projectData', data);
+
 export const layout = (state: Object = {}, action: HomePageActions): Object => {
   switch (action.type) {
     case LOAD_HOME_FAILURE:
@@ -34,6 +40,8 @@ export const layout = (state: Object = {}, action: HomePageActions): Object => {
       return addLayoutData(state, get(action, 'data'));
     case LOAD_HOME_EDITORIAL_DATA_SUCCESS:
       return addHomeEditorialData(state, get(action, 'data'));
+    case SAVE_NEW_PROJECT_DETAILS_SUCCESS:
+      return addProjectDetails(state, get(action, 'data'));
     default:
       return state;
   }

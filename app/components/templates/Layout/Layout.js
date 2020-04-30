@@ -1,36 +1,30 @@
 // @flow
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import type { Node } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import get from 'lodash/get';
-
 import Theme from '../../../styles/theme';
 import Header from '../../../containers/organisms/Header';
 import Footer from '../../../containers/organisms/Footer';
-import { DESKTOP } from '../../../constants';
-import API from '../../../utils/fetch';
 
 type Props = {
   children: Node,
-  deviceType: string,
-  hasRightGutter?: boolean,
 };
 
-const Layout = ({ children, deviceType, hasRightGutter }: Props): Node => {
-  // `deviceType` is now accessible to all component styles using `props.theme.deviceType`
-  Theme.deviceType = deviceType || DESKTOP;
-  /**
-   * isTabletCheckout Setting for theming at component level
-   * for all checkout pages loading on tablet device.
-   */
-  Theme.hasRightGutter = hasRightGutter;
-  API.setDeviceType(deviceType);
+const Main = styled.main`
+  min-height: calc(100vh - 120px);
+  position: relative;
+`;
 
+const Layout = ({ children }: Props): Node => {
   return (
     <ThemeProvider theme={Theme}>
-      <main>
+      <CssBaseline />
+      <div>
         <Head>
           <meta
             name="viewport"
@@ -39,16 +33,14 @@ const Layout = ({ children, deviceType, hasRightGutter }: Props): Node => {
           <meta name="theme-color" content="#000" />
         </Head>
         <Header />
-        {children}
+        <Main>{children}</Main>
         <Footer />
-      </main>
+      </div>
     </ThemeProvider>
   );
 };
 
-Layout.defaultProps = {
-  hasRightGutter: false,
-};
+Layout.defaultProps = {};
 
 /* istanbul ignore next */
 const mapDispatchToProps = () => ({});

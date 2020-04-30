@@ -12,17 +12,9 @@ const { MACHINE_IP, PORT, IS_CACHE_ENABLED, NODE_ENV } = require('./config/appCo
 // const { isStaticUrl, parseStaticUrl } = require('./utils/staticVersioning'); eslint-disable-line
 const apiCacheMiddlewareObj = require('./middlewares/pageCache');
 
-const {
-  ENV_PRODUCTION,
-  SERVICE_WORKER_FILE,
-  API_PROXY_PATH,
-  CLEAR_SERVICES_CACHE,
-  HEALTH_CHECK,
-  GET_CACHE_INDEX,
-} = require('../isomorphic/constants');
+const { ENV_PRODUCTION, SERVICE_WORKER_FILE, HEALTH_CHECK } = require('../isomorphic/constants');
 
 const routes = require('./routes');
-const apiProxy = require('./utils/apiProxy');
 const requestTime = require('./utils/perfCalc');
 const checkDirectory = require('./utils/checkDirectory');
 const getPerfLoggerFactory = require('./utils/perfLogger');
@@ -93,9 +85,6 @@ app.prepare().then(() => {
     // Parse cookies from request object
     .use(cookieParser())
 
-    // Proxy the request to API_PROXY_PATH - to the actual domain
-    .use(API_PROXY_PATH, apiProxy)
-
     // Add perflogger to request object in order to share the same instance
     .use((req, res, nextMiddleware) => {
       let isStaticPath = false;
@@ -136,26 +125,6 @@ app.prepare().then(() => {
     res.send({
       success: true,
     });
-  });
-
-  server.get(GET_CACHE_INDEX, (req, res) => {
-    apiCacheMiddlewareObj.getCacheIndex(res);
-  });
-
-  // Expose API to clear the cache for services configured
-  server.get(`${CLEAR_SERVICES_CACHE}:target?`, (req, res) => {
-    try {
-      if (IS_CACHE_ENABLED) {
-        apiCacheMiddlewareObj.bustPageCache(req.params.target);
-      }
-    } catch (err) {
-      res.send({
-        success: false,
-        error: err,
-      });
-      return;
-    }
-    res.send({ success: true });
   });
 
   /**

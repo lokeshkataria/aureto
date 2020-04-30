@@ -11,5 +11,5 @@ module.exports = {
     error: '/:page',
   },
 
-  fileExclusionList: ['_document.js', 'index.js', 'error.js'],
+  fileExclusionList: ['_document.js', 'index.js', 'error.js', 'api'],
 };

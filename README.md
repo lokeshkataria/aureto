@@ -1,12 +1,6 @@
-# Universal React
+# Aureto
 
-A community accepted and reliable XT Dev Ecosystem, that can be utilized as baseline for
-development of all types of projects, to achieve dependable delivery standards. This
-ecosystem doesn&apos;t intend to provide lot of out of the box code/components but a
-well configured development environment and delivery pipeline, having balanced focus to
-Static Code Quality, Performance, Processes, Security, Testability and Best Practices.
-This boilerplate will help project teams in building applications with great quality, by
-giving them more time to focus on business problems rather than web development chores.
+AAudit Review Tool based on Universal React Reference Architecture
 
 ## Ecosystem of this reference architecture 🎉
 

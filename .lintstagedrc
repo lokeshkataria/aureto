@@ -4,8 +4,8 @@
     "git add",
   ],
   "*.js": [
-    "yarn run lint:css",
-    "yarn run lint:js",
-    "yarn run test -- --findRelatedTests",
+    "npm run lint:css",
+    "npm run lint:js",
+    "npm run test -- --findRelatedTests",
   ]
 }
