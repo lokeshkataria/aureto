@@ -1,19 +1,6 @@
 # Aureto
 
-AAudit Review Tool based on Universal React Reference Architecture
-
-## Ecosystem of this reference architecture 🎉
-
-- **Development Environment:** Storybook integrated for developing and showcasing components.
-- **Flow typed:** All components are FlowTyped and Flow Type checked.
-- **Static Code Quality checks and formatting:** Javascript and CSS linting using Eslint, StyleLint and Prettier.
-- **Component scaffolding:** Consistently generate components using Plop.
-- **Git Hooks:** Pre-commit, Pre-push and pre-publish using Husky.
-- **Unit testing framework:** with Jest and Enzyme.
-- **Theme and Styling:** with Styled Components.
-- **Next.js:** to render react application server side and more.
-- **PWA:** application.
-- **Dynamic Authoring:** of pages with headless CMS.
+Audit Review Tool based on Universal React Reference Architecture
 
 ## Main Technology Dependencies
 
@@ -32,7 +19,3 @@ npm run flow:install
 ```
 
 flow:install will search the [`libdef`](https://github.com/flow-typed/flow-typed/blob/master/README.md) repo and download all the libdefs that are relevant for our project and install them for us.
-
-## How to ramp-up?
-
-Follow this ramp-up [guide](readme/01-GettingStarted.md)
